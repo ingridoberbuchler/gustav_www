@@ -1,0 +1,71 @@
+@import "src/theme/theme-variables";
+@import "src/theme/theme-mixins";
+
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.mat-sidenav {
+  min-width: 270px;
+  max-width: 28%;
+}
+
+.has-border {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-list {
+  padding-top: 0;
+}
+
+.mat-list-item {
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+:host ::ng-deep {
+  .mat-sidenav,
+  .mat-drawer-content,
+  .mat-drawer-backdrop {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    position: absolute;
+  }
+  .container {
+    padding: 1em;
+    max-width: 1700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .mat-toolbar.mat-primary {
+    background: linear-gradient(to left, rgba($gradient-dark1, .9), $gradient-dark2);
+  }
+
+  .dark-bg {
+    &.mat-drawer-content {
+      background: linear-gradient(to left, $gradient-dark1, $gradient-dark2);
+      color: $dark-primary-text;
+    }
+  }
+
+}
+
+@media ($mat-xsmall) {
+  .mat-sidenav,
+  .mat-drawer-content,
+  :host ::ng-deep .mat-drawer-backdrop {
+    //top: 56px;
+  }
+}
+
